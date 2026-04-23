@@ -9,10 +9,13 @@ ROOT = Tk()
 #TO SET A WINDOW TITLE, THAT SHOWS, AT THE TOP
 #OF THE WINDOW, USE "Tk().title('[TITLE HERE']')".
 ROOT.title('"tkinter" Test Application')
+
 try:
     while True:
+        
         #TO RUN THE WINDOW, USE "Tk().mainloop()" 
         ROOT.mainloop()
+        
 except Exception as ERROR:
     print(f'{ERROR}\n')
     exit(1)
