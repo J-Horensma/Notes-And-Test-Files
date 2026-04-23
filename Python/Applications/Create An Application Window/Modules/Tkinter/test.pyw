@@ -13,8 +13,6 @@ try:
     while True:
         #TO RUN THE WINDOW, USE "Tk().mainloop()" 
         ROOT.mainloop()
-except KeyboardInterrupt:
-    exit(0)
 except Exception as ERROR:
     print(f'{ERROR}\n')
     exit(1)
