@@ -1,9 +1,9 @@
 from sys import stderr, argv
 from argparse import ArgumentParser
 
+#NOTE: THIS IS HOW A PYTHON CLI, IS NORMALLY PARSED:
+
 try:
-    
-    #NOTE: THIS IS HOW A PYTHON CLI, IS NORMALLY PARSED
 
     #START THE PARSER:
     PARSER = ArgumentParser()
@@ -22,7 +22,7 @@ try:
     #NOTE: "argparse.ArgumentParser()", ACCEPTS ARGUMENT VALUES WITH SPACES, WHEN THE SPACED VALUES ARE QUOTED,
     #AND WILL RETURN THE SUPPLIED VALUES, WITHOUT QUOTES.
     
-    #START THE PARSER:
+    #PARSE THE ARGUMENTS:
     ARGUMENTS = PARSER.parse_args()
 
     #DO SOMETHING, WITH THE ARGUMENTS:
