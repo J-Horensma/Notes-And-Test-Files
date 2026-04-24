@@ -23,7 +23,7 @@ try:
     print('The "sys.argv" list, returns the full path to the CWD, of the process launching this file,')
     print('as the first list entry (0), except when the file itself calls it, then it returns the name of this file.\n')
     
-    #IF THIS FILES NAME ("__file__"), MATCHES THE FIRST ENTRY IN THE "sys.argv" LIST, 
+    #IF THIS FILE'S NAME ("__file__"), MATCHES THE FIRST ENTRY IN THE "sys.argv" LIST, 
     #IT IS THIS FILE CALLING THE CODE.
     if __file__ == argv[0]:
         chdir(dirname(__file__))
