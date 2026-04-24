@@ -24,8 +24,6 @@ def close():
     exit(0)
 
 def console(COMMAND):
-        
-    #NOTE: WORKS ON WINDOWS, LINUX, AND MAC
     
     #IF ON WINDOWS:
     if system() == 'Windows': 
