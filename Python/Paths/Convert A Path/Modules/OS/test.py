@@ -17,9 +17,9 @@ def close():
     sleep(1)
     exit(0)
 
-#CHANGE THE CWD TO THIS FILE'S PATH, WITH "os.chdir(dirname(__file__))",
+#CHANGE THE CWD, TO THIS FILE'S PATH, WITH "os.chdir(os.path.dirname(__file__))",
 #SO "os.path.realpath()", CONVERTS DOT-MATRIXES, IN RELATION TO THE PATH OF THIS FILE,
-#INSTEAD OF THE DEFAULT PYTHON PROFILE PATH, AS "os.path.realpath()" RELATES NON-ABSOLUTE PATHS, WITH THE CWD:
+#INSTEAD OF THE DEFAULT PYTHON PROFILE PATH, AS "os.path.realpath()" RELATES NON-ABSOLUTE PATHS, WITH THE CWD.
 chdir(dirname(__file__))
 
 #ADD WINDOWS ENVIRONMENT VARIABLES, NOT INCLUDED IN THE "os.path.expandvars()" FUNCTION:
