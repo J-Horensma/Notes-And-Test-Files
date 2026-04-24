@@ -25,7 +25,7 @@ try:
     #PARSE THE ARGUMENTS:
     ARGUMENTS = PARSER.parse_args()
 
-    #DO SOMETHING, WITH THE ARGUMENTS:
+    #DO SOMETHING, WITH THE PARSED ARGUMENT VALUES:
     print(f'Argument 1: {ARGUMENTS.argument_1}')
     print(f'Argument 2: {ARGUMENTS.argument_2}')
     print(f'Argument 3: {ARGUMENTS.argument_3}')
