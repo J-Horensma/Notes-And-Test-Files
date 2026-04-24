@@ -24,8 +24,6 @@ def close():
 
 def console(COMMAND):
     
-    #NOTE: THIS FUNCTION, WORKS ON WINDOWS, LINUX, AND MAC
-    
     #IF ON WINDOWS:
     if system() == 'Windows': 
         SHELL = run(
