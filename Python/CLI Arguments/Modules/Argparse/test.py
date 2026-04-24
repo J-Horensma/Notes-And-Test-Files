@@ -18,7 +18,7 @@ try:
     PARSER.add_argument('--argument_1', help='The 1st argument')
     PARSER.add_argument('--argument_2', help='The 2nd argument')
     PARSER.add_argument('--argument_3', help='The 3rd argument')
-    #NOTE: THE HELP SECTION, FOR EACH ARGUMENT, IS ADDED BY THE "help=" PARAMETER.
+    #NOTE: THE HELP SECTION, FOR EACH ARGUMENT, IS ADDED BY THE "help" OPTION.
     #NOTE: "argparser", ACCEPTS ARGUMENT VALUES, WITH SPACES, WHEN THE SPACED VALUES ARE QUOTED,
     #AND WILL RETURN THE SUPPLIED VALUES, WITHOUT QUOTES.
     
