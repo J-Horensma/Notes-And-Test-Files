@@ -20,7 +20,7 @@ BACKGROUND_LABEL = Label(ROOT, image=BACKGROUND_IMAGE)
 #USE THE ".place()" METHOD, WHEN SETTING THE BACKGROUND IMAGE.
 BACKGROUND_LABEL.place(relheight=1, relwidth=1)
 
-LABEL = Label(ROOT, text='Test Application Title', font=('Helvetica', 28, ('italic','bold')), relief='flat')
+LABEL = Label(ROOT, text='Test Application Title', font=('Helvetica', 28, ('italic','bold')))
 LABEL.pack(expand=True, anchor='n', padx=20, pady=20)
 
 ROOT.mainloop()
