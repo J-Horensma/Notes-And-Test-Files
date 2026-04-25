@@ -1,5 +1,4 @@
 from tkinter import Tk, Label
-from time import sleep
 
 ROOT = Tk()
 ROOT.geometry('800x600')
