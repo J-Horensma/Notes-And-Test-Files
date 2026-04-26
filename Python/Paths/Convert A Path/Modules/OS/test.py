@@ -22,8 +22,10 @@ def close():
 #INSTEAD OF THE DEFAULT PYTHON PROFILE PATH, AS "os.path.realpath()" RELATES NON-ABSOLUTE PATHS, WITH THE CWD.
 chdir(dirname(__file__))
 
-#ADD WINDOWS ENVIRONMENT VARIABLES, NOT INCLUDED IN THE "os.path.expandvars()" FUNCTION:
-environ['CD'] = getcwd()
+#IF THIS FILE, IS LAUNCHED BY WINDOWS:
+if system() == 'Windows':
+    #ADD WINDOWS ENVIRONMENT VARIABLES, NOT INCLUDED IN THE "os.path.expandvars()" FUNCTION:
+    environ['CD'] = getcwd()
 
 try:
     while True:
