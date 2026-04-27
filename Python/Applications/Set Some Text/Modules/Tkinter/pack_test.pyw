@@ -12,23 +12,16 @@ ROOT.title('Test Application')
 #IN THE WINDOW, IN CASCADING ORDERED RELEVANCE, TO THE LAST WIDGET SET, IN THE WINDOW.
 LABEL = Label(ROOT, text='Header', font=('Arial', 24, 'bold'))
 LABEL.pack(anchor='n', padx=10, pady=10)
-
 LABEL = Label(ROOT, text='Sub-title', font=('Arial', 18, 'bold'))
 LABEL.pack(anchor='nw', padx=10, pady=10)
-
 LABEL = Label(ROOT, text='Line 1', font=('Arial', 16))
 LABEL.pack(anchor='nw', padx=10)
-
 LABEL = Label(ROOT, text='Line 2', font=('Arial', 16))
 LABEL.pack(anchor='nw', padx=10)
-
 LABEL = Label(ROOT, text='Line 3', font=('Arial', 16))
 LABEL.pack(anchor='nw', padx=10)
-
 LABEL = Label(ROOT, text='Etc...', font=('Arial', 16))
 LABEL.pack(anchor='nw', padx=10)
-
 LABEL = Label(ROOT, text='Footer', font=('Arial', 24, 'bold'))
 LABEL.pack(anchor='n', padx=10, pady=10)
-
 ROOT.mainloop()
