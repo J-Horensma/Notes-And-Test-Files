@@ -22,32 +22,22 @@ ROOT.columnconfigure(2, weight=1)
 ROOT.rowconfigure(0, weight=1)
 ROOT.rowconfigure(1, weight=1)
 ROOT.rowconfigure(2, weight=1)
-
 LABEL = Label(ROOT, text='Center', font=('Helvetica', 24, 'bold'))
 LABEL.grid(row=0, column=0)
-
 LABEL = Label(ROOT, text='n', font=('Helvetica', 24, 'bold'))
 LABEL.grid(row=0, column=0, sticky='n')
-
 LABEL = Label(ROOT, text='ne', font=('Helvetica', 24, 'bold'))
 LABEL.grid(row=0, column=0, sticky='ne')
-
 LABEL = Label(ROOT, text='e', font=('Helvetica', 24, 'bold'))
 LABEL.grid(row=0, column=0, sticky='e')
-
 LABEL = Label(ROOT, text='se', font=('Helvetica', 24, 'bold'))
 LABEL.grid(row=0, column=0, sticky='se')
-
 LABEL = Label(ROOT, text='s', font=('Helvetica', 24, 'bold'))
 LABEL.grid(row=0, column=0, sticky='s')
-
 LABEL = Label(ROOT, text='sw', font=('Helvetica', 24, 'bold'))
 LABEL.grid(row=0, column=0, sticky='sw')
-
 LABEL = Label(ROOT, text='w', font=('Helvetica', 24, 'bold'))
 LABEL.grid(row=0, column=0, sticky='w')
-
 LABEL = Label(ROOT, text='nw', font=('Helvetica', 24, 'bold'))
 LABEL.grid(row=0, column=0, sticky='nw')
-
 ROOT.mainloop()
