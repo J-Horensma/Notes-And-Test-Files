@@ -3,14 +3,14 @@ from tkinter import Tk, StringVar, Entry, Checkbutton, Label
 #TO TOGGLE PASSWORD VISIBILITY,
 #USE THIS FUNCTION:
 def toggle_input_visibility():
-    if PASSWORD_INPUT.cget("show") == "*":
-        PASSWORD_INPUT.config(show="")
+    if PASSWORD_INPUT.cget("show") == '*':
+        PASSWORD_INPUT.config(show='')
     else:
-        PASSWORD_INPUT.config(show="*")
+        PASSWORD_INPUT.config(show='*')
 
 ROOT = Tk()
 ROOT.title('Test Application')
-ROOT.geometry("800x600")
+ROOT.geometry('300x160')
 
 #TO SET AN INPUT, IN THE WINDOW, FIRST SET A VARIABLE TYPE,
 #SUCH AS "StringVar()", THEN SET AN "Entry()" WIDGET, 
