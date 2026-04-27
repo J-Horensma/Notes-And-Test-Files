@@ -22,5 +22,4 @@ BACKGROUND_LABEL.place(relheight=1, relwidth=1)
 
 LABEL = Label(ROOT, text='Test Application Title', font=('Helvetica', 28, ('italic','bold')))
 LABEL.pack(expand=True, anchor='n', padx=10, pady=10)
-
 ROOT.mainloop()
