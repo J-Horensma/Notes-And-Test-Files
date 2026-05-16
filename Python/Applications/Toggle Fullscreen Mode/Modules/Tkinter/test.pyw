@@ -7,8 +7,8 @@ ROOT = Tk()
 ROOT.geometry('800x600')
 ROOT.title('"tkinter" Test Application')
 
-#THE "tkinter.Tk().attributes()" METHOD, HAS A FULLSCREEN MODE.
-#TO START FULLSCREEN MODE, USE "tkinter.Tk().attributes('-fullscreen', True)"
+#THE "tkinter.Tk().attributes()" METHOD, HAS A FULLSCREEN MODE,
+#TO START FULLSCREEN MODE, USE "tkinter.Tk().attributes('-fullscreen', True)".
 ROOT.attributes('-fullscreen', True)
 
 #TO TOGGLE FULLSCREEN MODE WITH THE "f11" KEY, USE "tkinter.Tk().bind()",
