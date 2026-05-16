@@ -14,16 +14,6 @@ while True:
         DB_TABLE_NAME = input('Enter a database table name: ')
         USERNAME = input('Enter a username: ')
         PASSWORD = input('Enter a password: ')
-
-        print('\nCreating a 16 byte length salt and a 32 byte length password hash...')
-
-        #TO GET A SECURE PASSWORD HASH, THAT CANNOT BE REVERTED,
-        #TO THE ORIGINAL PASSWORD, THE "get_hash_and_salt()" FUNCTION, CAN BE USED.
-        PASSWORD_HASH_BYTES, SALT_BYTES = get_hash_and_salt(PASSWORD)
-
-        print('Successfully created, a password hash and salt!')
-        print(f'Password hash: {PASSWORD_HASH_BYTES}')
-        print(f'Salt: {SALT_BYTES}\n')
         print('Verifying the database table exists...')
         if not table_exists(DB_FILE_PATH, DB_TABLE_NAME):
             print('The database table, does not exist, creating the table...')
@@ -41,6 +31,15 @@ while True:
             print('The database table, was created successfully!\n')
         else:
             print('The database table, already exists!\n')
+        print('\nCreating a 16 byte length salt and a 32 byte length password hash...')
+
+        #TO GET A SECURE PASSWORD HASH, THAT CANNOT BE REVERTED,
+        #TO THE ORIGINAL PASSWORD, THE "get_hash_and_salt()" FUNCTION, CAN BE USED.
+        PASSWORD_HASH_BYTES, SALT_BYTES = get_hash_and_salt(PASSWORD)
+
+        print('Successfully created, a password hash and salt!')
+        print(f'Password hash: {PASSWORD_HASH_BYTES}')
+        print(f'Salt: {SALT_BYTES}\n')
         print('Attempting to insert the new account details, into the database...')
         insert_row_values(DB_FILE_PATH, DB_TABLE_NAME, 'username, password_hash, salt', [USERNAME, PASSWORD_HASH_BYTES, SALT_BYTES])
         print('Successfully created, an account!\n')
