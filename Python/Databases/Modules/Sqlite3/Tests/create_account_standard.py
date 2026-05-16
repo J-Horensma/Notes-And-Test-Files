@@ -31,7 +31,7 @@ while True:
             print('The database table, was created successfully!\n')
         else:
             print('The database table, already exists!\n')
-        print('\nCreating a 16 byte length salt and a 32 byte length password hash...')
+        print('Creating a 16 byte length salt and a 32 byte length password hash...')
 
         #TO GET A SECURE PASSWORD HASH, THAT CANNOT BE REVERTED,
         #TO THE ORIGINAL PASSWORD, THE "get_hash_and_salt()" FUNCTION, CAN BE USED.
