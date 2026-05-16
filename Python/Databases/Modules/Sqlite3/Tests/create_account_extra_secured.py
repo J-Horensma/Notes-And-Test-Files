@@ -15,11 +15,10 @@ while True:
         PASSWORD = input('Enter a password: ')
         print('\nCreating a 16 byte length salt and a 32 byte length password hash...')
         PASSWORD_HASH_BYTES, SALT_BYTES = get_hash_and_salt(PASSWORD)
-
         print('Successfully created, a salt and password hash!\n')
         print('Verifying the database table exists...')
         if not table_exists(DB_FILE_PATH, DB_TABLE_NAME):
-            print('The DB table, does not exist, creating the DB table...')
+            print('The database table, does not exist, creating the table...')
             COLUMNS_INFO = '''
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             username TEXT NOT NULL UNIQUE,
@@ -27,9 +26,9 @@ while True:
             salt BLOB NOT NULL
             '''
             create_table(DB_FILE_PATH, DB_TABLE_NAME, COLUMNS_INFO)
-            print('The DB Table, was created successfully!\n')
+            print('The database table, was created successfully!\n')
         else:
-            print('The DB table, exists!\n')
+            print('The database table, already exists!\n')
         print('Encrypting the password hash, with the password hash, as a key,')
         print('before inserting it, into the DB...')
         
