@@ -24,10 +24,10 @@ def aes_128_encrypt_folder_thread(WINDOW, ENCRYPT_BTN, DECRYPT_BTN):
         PROGRESS_BAR.stop()
         PROGRESS_BAR.pack_forget()
         if RESULT[0]:
-            PROGRESS_BAR_MESSAGE.config(text=f'Successfully encrypted the folder\{}!')
+            PROGRESS_BAR_MESSAGE.config(text=f'Successfully encrypted, the folder:\n{FOLDER_PATH}!')
             WINDOW.after(1000, PROGRESS_BAR_MESSAGE.pack_forget)
         elif RESULT[1] == 'ALREADY_AES_128_ENCRYPTED':
-            PROGRESS_BAR_MESSAGE.config(text='The folder, already contains an AES-128 encrypted file.')
+            PROGRESS_BAR_MESSAGE.config(text='The selected folder, already contains an AES-128 encrypted file.')
             WINDOW.after(1000, PROGRESS_BAR_MESSAGE.pack_forget)
         else:
             PROGRESS_BAR_MESSAGE.config(text=RESULT[1])
