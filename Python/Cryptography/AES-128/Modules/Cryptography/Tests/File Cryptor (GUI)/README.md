@@ -1,2 +1,2 @@
 # AES-128 File Cryptor
-[▶ Watch Video](Media\example.mp4)
+[▶ Watch Video](Media/example.mp4)
