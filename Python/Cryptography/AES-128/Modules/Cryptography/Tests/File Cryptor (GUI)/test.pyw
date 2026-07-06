@@ -4,7 +4,7 @@ from tkinter import Tk, ttk, Frame, Label, Button
 from Functions.tkinter_functions import input_string_prompt, folder_path_prompt, file_path_prompt
 from Functions.aes_128_crypt_functions import aes_128_encrypt_folder, aes_128_decrypt_folder, aes_128_encrypt_file, aes_128_decrypt_file
 
-#AES-128 FILE CRYPTOR 
+#AES-128 FILE CRYPTOR GUI
 #BY: JOEL HORENSMA
 def disable_buttons(ENCRYPT_FOLDER_BUTTON, DECRYPT_FOLDER_BUTTON, ENCRYPT_FILE_BUTTON, DECRYPT_FILE_BUTTON):
     ENCRYPT_FOLDER_BUTTON.config(state='disabled')
