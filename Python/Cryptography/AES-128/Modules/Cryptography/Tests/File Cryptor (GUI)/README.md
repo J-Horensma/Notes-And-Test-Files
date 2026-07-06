@@ -1,2 +1,2 @@
 # AES-128 File Cryptor GUI
-![GUI Preview](Media/GUI.png)
+[![Preview](https://github.com/J-Horensma/Notes-And-Test-Files/edit/main/Python/Cryptography/AES-128/Modules/Cryptography/Tests/File%20Cryptor%20(GUI)/Media/preview.mp4)
