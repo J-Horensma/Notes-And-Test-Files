@@ -38,9 +38,9 @@ def get_hash_and_salt(PASSWORD, SALT_BYTES=None):
     return [HASH_BYTES, SALT_BYTES]
 
 #THIS FUNCTION:
-#1.) REQUIRES A FILE OBJECT, OPENED IN 'rb' MODE
-#2.) CHECKS IF THE FILE AES-128 ENCRYPTED, EMPTY, AND IF THE SALT HEADER INTEGRITY, IS CORRUPTED
-#3.) RETURNS A LIST, CONTAINING THE SALT BYTES, FROM THE SALT HEADER AND THE TOTAL SIZE, OF THE HEADER
+#1.) REQUIRES A FILE OBJECT OPENED, IN 'rb' MODE
+#2.) CHECKS IF THE FILE IS EMPTY, IS AES-128 ENCRYPTED, AND IF THE SALT HEADER INTEGRITY IS CORRUPTED
+#3.) RETURNS A LIST, CONTAINING THE SALT BYTES, FROM THE SALT HEADER AND THE TOTAL SIZE, OF THE SALT HEADER
 def check_aes_128_salt_header(FILE):
     if not isinstance(FILE, IOBase) or 'r' not in FILE.mode or 'b' not in FILE.mode:
         raise TypeError('[TypeError]\nFunction: "check_aes_128_encryption_headers()"\nThe supplied file parameter, was not a file object, in read bytes mode.')
