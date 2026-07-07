@@ -7,7 +7,7 @@ from src.aes_128_crypt_functions import aes_128_encrypt_folder, aes_128_decrypt_
 ###############################
 # NAME: AES-128 FILE CRYPTOR  #
 ###############################
-# VERSION: 1.0                #
+# VERSION: 1.0.0              #
 ###############################
 # AUTHOR: JOEL HORENSMA       #
 ###############################
