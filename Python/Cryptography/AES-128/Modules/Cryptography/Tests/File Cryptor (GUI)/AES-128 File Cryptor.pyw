@@ -4,8 +4,11 @@ from tkinter import Tk, ttk, Frame, Label, Button, messagebox
 from src.tkinter_functions_and_classes import input_password_prompt, folder_path_prompt, file_path_prompt
 from src.aes_128_crypt_functions import aes_128_encrypt_folder, aes_128_decrypt_folder, aes_128_encrypt_file, aes_128_decrypt_file
 
-#AES-128 FILE CRYPTOR 
-#BY: JOEL HORENSMA
+########################
+# AES-128 FILE CRYPTOR #
+# BY: JOEL HORENSMA    #
+########################
+
 def disable_buttons(ENCRYPT_FOLDER_BUTTON, DECRYPT_FOLDER_BUTTON, ENCRYPT_FILE_BUTTON, DECRYPT_FILE_BUTTON):
     ENCRYPT_FOLDER_BUTTON.config(state='disabled')
     DECRYPT_FOLDER_BUTTON.config(state='disabled')
