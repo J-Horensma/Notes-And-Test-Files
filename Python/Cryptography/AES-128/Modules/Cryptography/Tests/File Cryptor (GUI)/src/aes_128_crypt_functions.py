@@ -128,6 +128,8 @@ def aes_128_decrypt_folder(FOLDER_PATH, PASSWORD):
                     ERRORS.append(RESULT[1])
                 elif 'INCORRECT_PASSWORD' in RESULT[1]:
                     ERRORS.append(RESULT[1])
+                elif 'AES_128_FILE_DECRYPTION_FAILED' in RESULT[1]:
+                    ERRORS.append(RESULT[1])
         if ERRORS:
             return [False, ERRORS]
         else:
