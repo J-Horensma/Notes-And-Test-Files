@@ -76,7 +76,7 @@ def file_path_prompt(PROMPT_TITLE=None, PROMPT_PATH=None, FILE_TYPES=None):
 #THIS CLASS:
 #1.) REQUIRES A "tkinter.Tk()" CLASS
 #2.) PROMPTS THE USER TO INPUT A PASSWORD, WITH AN INPUT PROMPT, CONTAINING A TOGGLE VISIBILITY BUTTON
-#3.) RETURNS THE PASSWORD, THAT WAS ENTERED, AS A STRING, WHEN CALLED, WITH "input_password_prompt(tkinter.Tk()).value"
+#3.) RETURNS THE PASSWORD, THAT WAS ENTERED, AS A STRING, WHEN CALLED WITH "input_password_prompt(tkinter.Tk()).value"
 class input_password_prompt(simpledialog.Dialog):
     def body(self, WINDOW):
         self.value = ''
