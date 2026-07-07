@@ -10,5 +10,5 @@
 2.) ```pip install pyinstaller```
 
 #### To Compile The Application Yourself:
-1.) Open a shell prompt and change directory, to this file's directory
+1.) Open a shell prompt and change directory, to this file's directory \
 2.) ```python -m PyInstaller --onefile --windowed --icon=assets/lock.ico "AES-128 File Cryptor.pyw"```
