@@ -3,5 +3,5 @@
 #### The Windows "AES-128 File Cryptor.exe" file, has all it's requirements bundled with it, so nothing needs to be installed.
 #### The Windows "AES-128 File Cryptor.exe" file, is unsigned, 
 as it costs money to sign an application, therefor, it may trigger a smartscreen warning, in Windows, however, it is a safe application and the source code is available to review for yourself, in the "AES-128 File Cryptor.pyw" file, as well as, the "src" directory.
-#### This application works on Linux and Mac, using the "AES-128 File Cryptor.pyw" file (The latest Python, must be installed first).
+#### The Windows, Linux and Mac "AES-128 File Cryptor.pyw" file, can be used, with the latest Python installed.
 ![Preview](assets/preview.png)
