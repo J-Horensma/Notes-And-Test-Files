@@ -86,9 +86,9 @@ def aes_128_encrypt_folder(FOLDER_PATH, PASSWORD):
             for FILE_NAME in FILES:
                 FILE_PATH = join(ROOT, FILE_NAME)
                 RESULT = aes_128_encrypt_file(FILE_PATH, PASSWORD)
-                if 'FILE_EMPTY' in RESULT[1]:
+                if 'ALREADY_AES_128_ENCRYPTED' in RESULT[1]:
                     ERRORS.append(RESULT[1])
-                elif 'ALREADY_AES_128_ENCRYPTED' in RESULT[1]:
+                elif 'FILE_EMPTY' in RESULT[1]:
                     ERRORS.append(RESULT[1])
                 elif 'AES_128_FILE_ENCRYPTION_FAILED' in RESULT[1]:
                     ERRORS.append(RESULT[1])
