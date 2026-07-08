@@ -7,8 +7,8 @@
 #### You can compile the application yourself, using Python's "PyInstaller", for Windows, Mac, and Linux. If you compile the "AES-128 File Cryptor.exe" file, with PyInstaller, in Windows, on your own system, you will not get a smartscreen warning, when using the "AES-128 File Cryptor.exe" file.
 #### To Install "PyInstaller":
 1.) Install Python (If not already installed) \
-2.) ```pip install pyinstaller```
+2.) Shell: ```pip install pyinstaller```
 
 #### To Compile The Application Yourself:
 1.) Open a shell prompt and change directory, to this file's directory \
-2.) ```python -m PyInstaller --onefile --windowed --icon=assets/lock.ico "AES-128 File Cryptor.pyw"```
+2.) Shell: ```python -m PyInstaller --onefile --windowed --icon=assets/lock.ico "AES-128 File Cryptor.pyw"```
