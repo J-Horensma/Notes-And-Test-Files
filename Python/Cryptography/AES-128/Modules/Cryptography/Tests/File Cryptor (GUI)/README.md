@@ -9,6 +9,6 @@
 1.) Install Python (If not already installed) \
 2.) Shell: ```pip install pyinstaller```
 
-#### To Compile The Application Yourself:
+#### To Compile "AES-128 File Cryptor", Yourself:
 1.) Open a shell prompt and change directory, to this file's directory \
 2.) Shell: ```python -m PyInstaller --onefile --windowed --icon=assets/lock.ico "AES-128 File Cryptor.pyw"```
