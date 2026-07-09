@@ -4,7 +4,6 @@
 
 ## This application, makes AES-128 encryption and decryption, of files and/or entire folders, quick and easy.
 
-![Preview](assets/favicon.ico)
 ![Preview](assets/preview_1.png)
 ![Preview](assets/preview_2.png)
 ![Preview](assets/preview_3.png)
