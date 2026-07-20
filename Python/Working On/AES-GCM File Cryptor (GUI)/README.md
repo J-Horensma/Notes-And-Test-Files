@@ -5,11 +5,11 @@
 #### 1.) Pick encryption/decryption options
 #### 2.) Enter the password
 #### 3.) Encrypt/decrypt a file or an entire folder
-
+#
 ![Preview](assets/preview_1.png)
 ![Preview](assets/preview_2.png)
 ![Preview](assets/preview_3.png)
-
+#
 ## Setup (Windows):
 #### The pre-compiled "AES-GCM File Cryptor.exe" file, has all of it's requirements bundled with it, so no requirements, will need to be installed, just download and use.
 ## Setup (Linux and Mac):
