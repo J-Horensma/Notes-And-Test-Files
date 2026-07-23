@@ -412,3 +412,47 @@ def aes_gcm_encrypt_variable(PLAINTEXT_VARIABLE, KEY_SIZE, PASSWORD):
             return [ENCRYPTED_VARIABLE_BYTES, SALT_BYTES, NONCE_BYTES, TAG_BYTES]
         except Exception as ERROR:
             raise Exception(f'[Exception]\nFunction: "aes_gcm_encrypt_variable()"\n{ERROR}')
+
+#THIS FUNCTION:
+#1.) REQUIRES AN ENCRYPTED VARIABLE BYTES, KEY SIZE INTEGER, PASSWORD STRING, SALT, NONCE, AND TAG BYTES
+#2.) VALIDATES THE PASSWORD, USING THE SALT BYTES, TO CREATE A MATCHING KEY TO THE ORIGINAL ENCRYPTION KEY, 
+#IN COMBINATION WITH THE PASSWORD, USING THE "get_aes_key_and_salt()" FUNCTION
+#3.) DECRYPTS AND RETURNS THE VARIABLE, AS A BYTES TYPE, 
+#IF THE PASSWORD IS CORRECT, RETURNS "None", IF THE PASSWORD IS INCORRECT
+def aes_gcm_decrypt_variable(ENCRYPTED_BYTES, KEY_SIZE, PASSWORD, SALT_BYTES, NONCE_BYTES, TAG_BYTES):
+    KEY_SIZE_LIST = [128, 192, 256]
+    if not isinstance(ENCRYPTED_BYTES, bytes):
+        raise TypeError('[TypeError]\nFunction: "aes_gcm_decrypt_variable()"\nThe encrypted bytes parameter, must be a bytes type.')
+    elif not ENCRYPTED_BYTES:
+        raise ValueError('[ValueError]\nFunction: "aes_gcm_decrypt_variable()"\nThe encrypted bytes parameter, cannot be empty.')
+    elif KEY_SIZE not in KEY_SIZE_LIST:
+        raise ValueError('[ValueError]\nFunction: "aes_gcm_encrypt_variable()"\nThe key size parameter, must be an integer type, of 128, 192, or 256.')
+    elif not isinstance(SALT_BYTES, bytes):
+        raise TypeError('[TypeError]\nFunction: "aes_gcm_decrypt_variable()"\nThe salt bytes parameter, must be a bytes type.')
+    elif not SALT_BYTES:
+        raise ValueError('[ValueError]\nFunction: "aes_gcm_decrypt_variable()"\nThe salt bytes parameter, cannot be empty.')
+    elif len(SALT_BYTES) != 16:
+        raise ValueError('[ValueError]\nFunction: "aes_gcm_decrypt_variable()"\nThe tag bytes parameter, must be 16 bytes long.')
+    elif not isinstance(NONCE_BYTES, bytes):
+        raise TypeError('[TypeError]\nFunction: "aes_gcm_decrypt_variable()"\nThe nonce bytes parameter, must be a bytes type.')
+    elif not NONCE_BYTES:
+        raise ValueError('[ValueError]\nFunction: "aes_gcm_decrypt_variable()"\nThe nonce bytes parameter, cannot be empty.')
+    elif len(NONCE_BYTES) != 12:
+        raise ValueError('[ValueError]\nFunction: "aes_gcm_decrypt_variable()"\nThe nonce bytes parameter, must be 12 bytes long.')
+    elif not isinstance(TAG_BYTES, bytes):
+        raise TypeError('[TypeError]\nFunction: "aes_gcm_decrypt_variable()"\nThe tag bytes parameter, must be a bytes type.')
+    elif not TAG_BYTES:
+        raise ValueError('[ValueError]\nFunction: "aes_gcm_decrypt_variable()"\nThe tag bytes parameter, cannot be empty.')
+    elif len(TAG_BYTES) != 16:
+        raise ValueError('[ValueError]\nFunction: "aes_gcm_decrypt_variable()"\nThe tag bytes parameter, must be 16 bytes long.')
+    else:
+        try:
+            KEY_BYTES = get_aes_key_and_salt(KEY_SIZE, PASSWORD, SALT_BYTES)[0]
+            CIPHER = Cipher(algorithms.AES(KEY_BYTES), modes.GCM(NONCE_BYTES, TAG_BYTES))
+            DECRYPTOR = CIPHER.decryptor()
+            PLAINTEXT = DECRYPTOR.update(ENCRYPTED_BYTES) + DECRYPTOR.finalize()
+            return PLAINTEXT
+        except InvalidTag:
+            return None
+        except Exception as ERROR:
+            raise Exception(f'[Exception]\nFunction: "aes_gcm_decrypt_variable()"\n{ERROR}')
