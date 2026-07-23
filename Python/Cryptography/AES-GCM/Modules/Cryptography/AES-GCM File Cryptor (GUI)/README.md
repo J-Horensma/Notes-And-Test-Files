@@ -13,7 +13,7 @@
 #### The pre-compiled "AES-GCM File Cryptor.exe" file, has all of it's requirements bundled with it, so no requirements, will need to be installed, just download and use.
 ## Setup (Linux and Mac):
 #### The "AES-GCM File Cryptor.pyw" file, can be used with the latest Python installed. You can also compile it, yourself, with "PyInstaller", to create a system-specific executable (See below).
-## Install "PyInstaller" (Windows, Linux, And Mac):
+## Install "PyInstaller", To Compile Yourself (Windows, Linux, And Mac):
 1.) Install Python (If not already installed) \
 2.) ```pip install pyinstaller```
 #### To Compile "AES-GCM File Cryptor" Yourself (Windows, Linux, And Mac):
