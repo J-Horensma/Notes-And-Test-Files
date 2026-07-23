@@ -382,3 +382,33 @@ def aes_gcm_decrypt_file(FILE_PATH, PASSWORD, BLOCK_SIZE=None):
             else:
                 raise Exception(f'[Exception]\nFunction: "aes_gcm_decrypt_file()"\n{ERROR}\n{FILE_PATH}\nAdditionally, the temporary file: {FILE_PATH + ".tmp"},\nwas unable to be deleted.')
         raise Exception(f'[Exception]\nFunction: "aes_gcm_decrypt_file()"\n{ERROR}\n{FILE_PATH}')
+
+#THIS FUNCTION:
+#1.) REQUIRES A PLAINTEXT STRING OR BYTES TYPE VARIABLE, KEY SIZE INTEGER, AND A PASSWORD STRING
+#2.) CREATES A 16 BYTE SALT AND 12 BYTE NONCE
+#3.) AES-GCM ENCRYPTS THE VARIABLE
+#4.) RETURNS THE ENCRYPTED VARIABLE, SALT, NONCE, AND TAG BYTES, AS A LIST 
+def aes_gcm_encrypt_variable(PLAINTEXT_VARIABLE, KEY_SIZE, PASSWORD):
+    KEY_SIZE_LIST = [128, 192, 256]
+    if not isinstance(PLAINTEXT_VARIABLE, (str, bytes)):
+        raise TypeError('[TypeError]\nFunction: "aes_gcm_encrypt_variable()"\nThe plaintext variable parameter, must be a string or bytes type.')
+    elif not PLAINTEXT_VARIABLE:
+        raise ValueError('[ValueError]\nFunction: "aes_gcm_encrypt_variable()"\nThe plaintext variable parameter, cannot be empty.')
+    elif KEY_SIZE not in KEY_SIZE_LIST:
+        raise ValueError('[ValueError]\nFunction: "aes_gcm_encrypt_variable()"\nThe key size parameter, must be an integer type, of 128, 192, or 256.')
+    elif not isinstance(PASSWORD, str):
+        raise TypeError('[TypeError]\nFunction: "aes_gcm_encrypt_variable()"\nThe password parameter, must be a string type.')
+    elif not PASSWORD:
+        raise ValueError('[ValueError]\nFunction: "aes_gcm_encrypt_variable()"\nThe password parameter, cannot be empty.')
+    else:
+        try:
+            PLAINTEXT = PLAINTEXT_VARIABLE.encode() if isinstance(PLAINTEXT_VARIABLE, str) else PLAINTEXT_VARIABLE
+            KEY_BYTES, SALT_BYTES = get_aes_key_and_salt(KEY_SIZE, PASSWORD)
+            NONCE_BYTES = token_bytes(12)
+            CIPHER = Cipher(algorithms.AES(KEY_BYTES), modes.GCM(NONCE_BYTES))
+            ENCRYPTOR = CIPHER.encryptor()
+            ENCRYPTED_VARIABLE_BYTES = ENCRYPTOR.update(PLAINTEXT) + ENCRYPTOR.finalize()
+            TAG_BYTES = ENCRYPTOR.tag
+            return [ENCRYPTED_VARIABLE_BYTES, SALT_BYTES, NONCE_BYTES, TAG_BYTES]
+        except Exception as ERROR:
+            raise Exception(f'[Exception]\nFunction: "aes_gcm_encrypt_variable()"\n{ERROR}')
