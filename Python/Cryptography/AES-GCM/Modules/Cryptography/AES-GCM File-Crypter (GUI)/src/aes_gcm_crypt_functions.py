@@ -426,7 +426,7 @@ def aes_gcm_decrypt_variable(ENCRYPTED_BYTES, KEY_SIZE, PASSWORD, SALT_BYTES, NO
     elif not ENCRYPTED_BYTES:
         raise ValueError('[ValueError]\nFunction: "aes_gcm_decrypt_variable()"\nThe encrypted bytes parameter, cannot be empty.')
     elif KEY_SIZE not in KEY_SIZE_LIST:
-        raise ValueError('[ValueError]\nFunction: "aes_gcm_encrypt_variable()"\nThe key size parameter, must be an integer type, of 128, 192, or 256.')
+        raise ValueError('[ValueError]\nFunction: "aes_gcm_decrypt_variable()"\nThe key size parameter, must be an integer type, of 128, 192, or 256.')
     elif not isinstance(SALT_BYTES, bytes):
         raise TypeError('[TypeError]\nFunction: "aes_gcm_decrypt_variable()"\nThe salt bytes parameter, must be a bytes type.')
     elif not SALT_BYTES:
