@@ -3,7 +3,7 @@
 ## This application, makes AES-GCM (128, 192, or 256 bit) encryption/decryption, of files and/or entire folders, quick and easy, for Windows, Linux, And Mac.
 #
 ## What is AES-GCM?
-### AES-GCM, is the most modern and secure approach, for encryption/decryption.
+### AES-GCM, is the most modern and secure approach for encryption/decryption.
 #
 ## Usage:
 1.) Pick encryption/decryption options
