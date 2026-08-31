@@ -6,8 +6,8 @@
 ### AES-GCM, is the most modern and secure approach for encryption/decryption.
 #
 ## Usage:
-1.) Pick encryption/decryption options
-2.) Enter the password
+1.) Pick encryption/decryption options \
+2.) Enter the password \
 3.) Encrypt/decrypt a file or an entire folder
 #
 ![Preview](assets/previews/preview_1.png)
