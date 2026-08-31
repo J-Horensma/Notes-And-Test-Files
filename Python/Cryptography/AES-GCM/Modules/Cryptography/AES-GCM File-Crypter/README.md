@@ -5,18 +5,18 @@
 ## What is AES-GCM?
 #### AES-GCM, is the most secure and modern approach for encryption/decryption.
 
-## Usage (Windows):
-1.) Pick encryption/decryption options \
-2.) Enter the password \
-3.) Encrypt/decrypt a file or an entire folder
-
 ![Preview](assets/previews/preview_1.png)
 ![Preview](assets/previews/preview_2.png)
 ![Preview](assets/previews/preview_3.png)
 
-## Setup (Windows):
-#### The pre-compiled "AES-GCM File-Crypter.exe" file, has all of it's requirements bundled with it, so no requirements are needed, just download and use.
-
-## To Compile "AES-GCM File-Crypter", Yourself (Windows, Linux, And Mac):
+## To Compile "AES-GCM File-Crypter", Yourself (Windows):
 1.) Open a shell prompt and change directory, to this file's directory, before entering the following shellcode \
 2.) ```python -m PyInstaller --onefile --windowed --icon=assets/icon/ico/icon.ico --add-data "assets;assets" "AES-GCM File-Crypter.pyw"```
+
+## Setup (Windows):
+#### No setup is required, the pre-compiled "AES-GCM File-Crypter.exe" file, has all of it's requirements bundled with it, just download and use.
+
+## Usage:
+1.) Pick encryption/decryption options \
+2.) Enter the password \
+3.) Encrypt/decrypt a file or an entire folder
