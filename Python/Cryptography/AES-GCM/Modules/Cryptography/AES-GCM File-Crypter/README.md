@@ -1,4 +1,4 @@
-![Preview](assets/favicon/ico/256x256.ico)
+![Preview](assets/icon/ico/256x256.ico)
 # AES-GCM File-Crypter (Graphical User Interface)
 ## This application, makes AES-GCM (128, 192, or 256 bit) encryption/decryption, of files and/or entire folders, quick and easy, for Windows, Linux, And Mac.
 #
@@ -22,4 +22,4 @@
 2.) ```pip install pyinstaller```
 ### To Compile "AES-GCM File-Crypter" Yourself (Windows, Linux, And Mac):
 1.) Open a shell prompt and change directory, to this file's directory, before entering the following shellcode \
-2.) ```python -m PyInstaller --onefile --windowed --icon=assets/favicon/ico/256x256.ico "AES-GCM File-Crypter.pyw"```
+2.) ```python -m PyInstaller --onefile --windowed --icon=assets/icon/ico/256x256.ico "AES-GCM File-Crypter.pyw"```
