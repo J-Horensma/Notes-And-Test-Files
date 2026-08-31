@@ -1,10 +1,10 @@
 ![Preview](assets/icon/ico/256x256.ico)
 # AES-GCM File-Crypter (Graphical User Interface)
 ## This application, makes AES-GCM (128, 192, or 256 bit) encryption/decryption, of files and/or entire folders, quick and easy, for Windows, Linux, And Mac.
-#
+
 ## What is AES-GCM?
 ### AES-GCM, is the most modern and secure approach for encryption/decryption.
-#
+
 ## Usage:
 1.) Pick encryption/decryption options \
 2.) Enter the password \
