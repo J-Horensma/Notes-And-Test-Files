@@ -14,14 +14,14 @@
 #### The pre-compiled "AES-GCM File-Crypter.exe" file, has all of it's requirements bundled with it, so no requirements are needed, just download and use.
 
 ## Setup (Linux):
-#### TODO
+#### COMING SOON!
 
 ## To Compile "AES-GCM File-Crypter" Yourself (Windows):
 1.) Open a shell prompt and change directory, to this file's directory, before entering the following shellcode \
 2.) ```python -m PyInstaller --onefile --windowed --icon=assets/icon/ico/256x256.ico "AES-GCM File-Crypter.pyw"```
 
 ## To Compile "AES-GCM File-Crypter" Yourself (Linux):
-#### TODO
+#### COMING SOON!
 
 ## Usage:
 1.) Pick encryption/decryption options \
