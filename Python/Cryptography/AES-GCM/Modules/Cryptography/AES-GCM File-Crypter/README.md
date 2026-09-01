@@ -9,14 +9,21 @@
 ![Preview](assets/previews/preview_2.png)
 ![Preview](assets/previews/preview_3.png)
 
-## To Compile "AES-GCM File-Crypter", Yourself (Windows):
-1.) Open a shell prompt and change directory, to this file's directory, before entering the following shellcode \
-2.) ```python -m PyInstaller --onefile --windowed --icon=assets/icon/ico/icon.ico --add-data "assets;assets" "AES-GCM File-Crypter.pyw"```
-
 ## Setup (Windows):
 #### No setup is required, the pre-compiled "AES-GCM File-Crypter.exe" file, has all of it's requirements bundled with it, just download and use.
+
+## Setup (Linux):
+#### No setup is required, the pre-compiled "AES-GCM File-Crypter.bin" file, has all of it's requirements bundled with it, just download and use.
 
 ## Usage:
 1.) Pick encryption/decryption options \
 2.) Enter the password \
 3.) Encrypt/decrypt a file or an entire folder
+
+## To Compile "AES-GCM File-Crypter", Yourself (Windows):
+1.) Make sure the latest python and requirements are installed, then open a shell prompt and change directory to this file's directory, before entering the following shellcode \
+2.) ```python -m PyInstaller --clean --noconfirm --onefile --windowed --icon=assets/icon/ico/icon.ico --add-data "assets;assets" "AES-GCM File-Crypter.pyw"```
+
+## To Compile "AES-GCM File-Crypter", Yourself (Linux):
+1.) Make sure the latest python and requirements are installed, then open a shell prompt and change directory to this file's directory, before entering the following shellcode \
+2.) ```python -m PyInstaller --clean --noconfirm --onefile --windowed --icon="assets/icon/ico/icon.ico" --add-data "assets:assets" --hidden-import=_cffi_backend --collect-binaries cffi --collect-data cffi "AES-GCM File-Crypter.pyw"```
