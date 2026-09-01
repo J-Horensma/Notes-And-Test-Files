@@ -9,6 +9,7 @@
 ![Preview](assets/previews/preview_1.png)
 ![Preview](assets/previews/preview_2.png)
 ![Preview](assets/previews/preview_3.png)
+![Preview](assets/previews/preview_4.png)
 
 ## Setup (Windows):
 #### No setup is required, the pre-compiled "AES-GCM File-Crypter.exe" file, has all of it's requirements bundled with it, just download and use.
