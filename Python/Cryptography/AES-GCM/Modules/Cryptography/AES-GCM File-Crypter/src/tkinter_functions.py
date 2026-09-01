@@ -211,9 +211,9 @@ def password_input_prompt(ROOT_WINDOW, ICON_ICO=None, ICON_PNG=None, PROMPT_TITL
 #3.) RETURNS THE FULL FOLDER PATH, THAT WAS CHOSEN, AS A STRING, OR "None", IF THE WINDOW IS CLOSED OR CANCELLED
 def folder_path_prompt(PROMPT_TITLE=None, PROMPT_PATH=None):
     if PROMPT_TITLE is not None and not isinstance(PROMPT_TITLE, str):
-        raise TypeError('[TypeError]\nFunction: "folder_path_prompt()"\nThe prompt title parameter, was not a string type.')
+        raise TypeError('[TypeError]\nFunction: "folder_path_prompt()"\nThe prompt title parameter, must be a string type.')
     elif PROMPT_PATH is not None and not isdir(PROMPT_PATH):
-        raise NotADirectoryError('[NotADirectoryError]\nFunction: "folder_path_prompt()"\nThe prompt path parameter, must be a path to an existing folder.')
+        raise NotADirectoryError('[NotADirectoryError]\nFunction: "folder_path_prompt()"\nThe prompt path parameter, must be an existing absolute folder path.')
     PROMPT_TITLE = 'Choose A Folder:' if PROMPT_TITLE is None else PROMPT_TITLE
     PROMPT_PATH = expanduser('~') if PROMPT_PATH is None else PROMPT_PATH
     PATH = filedialog.askdirectory(
@@ -232,11 +232,11 @@ def folder_path_prompt(PROMPT_TITLE=None, PROMPT_PATH=None):
 #4.) RETURNS THE FULL FILE PATH, THAT WAS CHOSEN, AS A STRING, OR "None", IF THE WINDOW IS CLOSED OR CANCELLED
 def file_path_prompt(PROMPT_TITLE=None, PROMPT_PATH=None, FILE_TYPES=None):
     if PROMPT_TITLE is not None and not isinstance(PROMPT_TITLE, str):
-        raise TypeError('[TypeError]\nFunction: "file_path_prompt()"\nThe supplied prompt title parameter, was not a string type.')
+        raise TypeError('[TypeError]\nFunction: "file_path_prompt()"\nThe prompt title parameter, must be a string type.')
     elif PROMPT_PATH is not None and not isdir(PROMPT_PATH):
-        raise NotADirectoryError('[NotADirectoryError]\nFunction: "file_path_prompt()"\nThe supplied prompt path parameter, was not a path to an existing folder.')
+        raise NotADirectoryError('[NotADirectoryError]\nFunction: "file_path_prompt()"\nThe prompt path parameter, must be an existing absolute folder path.')
     elif FILE_TYPES is not None and not isinstance(FILE_TYPES, list):
-        raise TypeError('[TypeError]\nFunction: "file_path_prompt()"\nThe supplied file types parameter, was not a list.')
+        raise TypeError('[TypeError]\nFunction: "file_path_prompt()"\nThe file types parameter, must be a list type.')
     PROMPT_TITLE = 'Choose A File' if PROMPT_TITLE is None else PROMPT_TITLE
     PROMPT_PATH = expanduser('~') if PROMPT_PATH is None else PROMPT_PATH
     FILE_TYPES = [('All Files', '*.*')] if FILE_TYPES is None else FILE_TYPES
