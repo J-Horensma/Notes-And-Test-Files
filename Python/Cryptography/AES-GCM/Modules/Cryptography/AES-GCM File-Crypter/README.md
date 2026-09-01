@@ -21,10 +21,10 @@
 2.) Enter the password \
 3.) Encrypt/decrypt a file or an entire folder
 
-## To Compile "AES-GCM File-Crypter", Yourself (Windows):
+## Compile From Source, Yourself, On Windows:
 1.) Make sure the latest python, PyInstaller, and correct requirements are installed, then open a terminal and change directory to this file's directory, before entering the following shellcode \
 2.) ```python -m PyInstaller --clean --noconfirm --onefile --windowed --icon=assets/icon/ico/icon.ico --add-data "assets;assets" "AES-GCM File-Crypter.pyw"```
 
-## To Compile "AES-GCM File-Crypter", Yourself (Linux):
+## Compile From Source, Yourself, On Linux:
 1.) Make sure the latest python, PyInstaller, and correct requirements are installed, then open a terminal and change directory to this file's directory, before entering the following shellcode \
 2.) ```python -m PyInstaller --clean --noconfirm --onefile --windowed --icon="assets/icon/ico/icon.ico" --add-data "assets:assets" --hidden-import=_cffi_backend --collect-binaries cffi --collect-data cffi "AES-GCM File-Crypter.pyw"```
