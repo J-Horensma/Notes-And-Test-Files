@@ -1,6 +1,7 @@
 from io import IOBase
-from os import walk, access, R_OK, W_OK, X_OK, replace, remove, fsync
+from os import chmod, walk, access, R_OK, W_OK, X_OK, replace, remove, fsync
 from os.path import join, exists, isdir, isfile, islink
+from stat import S_IRWXU, S_IRWXG, S_IRWXO
 from struct import pack, unpack
 from base64 import urlsafe_b64encode
 from secrets import token_bytes
@@ -204,7 +205,10 @@ def aes_gcm_encrypt_file(FILE_PATH, KEY_SIZE, PASSWORD, BLOCK_SIZE=None):
         ENCRYPTOR = CIPHER.encryptor()
         #CHECK IF FILE PERMISSION, IS AVAILABLE
         if exists(FILE_PATH) and not all([access(FILE_PATH, R_OK), access(FILE_PATH, W_OK), access(FILE_PATH, X_OK)]):
-            return [False, f'FILE_PERMISSION_DENIED:\n{FILE_PATH}']
+            try:
+                chmod(FILE_PATH, S_IRWXU | S_IRWXG | S_IRWXO)
+            except:
+                return [False, f'FILE_PERMISSION_DENIED:\n{FILE_PATH}']
         with open(FILE_PATH, 'rb') as INFILE:
             #CHECK IF THE FILE, IS EMPTY OR ALREADY AES-GCM ENCRYPTED
             AES_GCM_HEADERS_CHECK = check_aes_gcm_headers(INFILE)
@@ -265,9 +269,10 @@ def aes_gcm_encrypt_file(FILE_PATH, KEY_SIZE, PASSWORD, BLOCK_SIZE=None):
         return [True, f'AES-GCM_FILE_ENCRYPTION_SUCCESSFULL:\n{FILE_PATH}']
     except Exception as ERROR:
         if exists(FILE_PATH + '.tmp'):
-            if all([access(FILE_PATH + '.tmp', W_OK), access(FILE_PATH + '.tmp', X_OK)]):
+            try:
+                chmod(FILE_PATH + '.tmp', S_IRWXU | S_IRWXG | S_IRWXO)
                 remove(FILE_PATH + '.tmp')
-            else:
+            except:
                 raise Exception(f'[Exception]\nFunction: "aes_gcm_encrypt_file()"\n{ERROR}\nAdditionally, the temporary file: {FILE_PATH + '.tmp'},\nwas unable to be deleted.')
         raise Exception(f'[Exception]\nFunction: "aes_gcm_encrypt_file()"\n{ERROR}\n{FILE_PATH}')
 
@@ -288,7 +293,10 @@ def aes_gcm_decrypt_file(FILE_PATH, PASSWORD, BLOCK_SIZE=None):
         BLOCK_SIZE = 65536 if BLOCK_SIZE is None else BLOCK_SIZE
         #CHECK IF FILE PERMISSION, IS AVAILABLE
         if exists(FILE_PATH) and not all([access(FILE_PATH, R_OK), access(FILE_PATH, W_OK), access(FILE_PATH, X_OK)]):
-            return [False, f'FILE_PERMISSION_DENIED:\n{FILE_PATH}']
+            try:
+                chmod(FILE_PATH, S_IRWXU | S_IRWXG | S_IRWXO)
+            except:
+                return [False, f'FILE_PERMISSION_DENIED:\n{FILE_PATH}']
         #STREAM THE DATA (TO DECRYPT ALL FILE TYPES)
         with open(FILE_PATH, 'rb') as INFILE:
             #CHECK IF THE FILE, IS EMPTY, NOT AES-GCM ENCRYPTED, OR HAS ANY OTHER ERROR
@@ -324,9 +332,10 @@ def aes_gcm_decrypt_file(FILE_PATH, PASSWORD, BLOCK_SIZE=None):
                     #CHECK IF THE CHUNK SIZE INTEGER, IS CORRUPTED
                     if CHUNK_SIZE <= 0:
                         if exists(FILE_PATH + '.tmp'):
-                            if all([access(FILE_PATH + '.tmp', W_OK), access(FILE_PATH + '.tmp', X_OK)]):
+                            try:
+                                chmod(FILE_PATH + '.tmp', S_IRWXU | S_IRWXG | S_IRWXO)
                                 remove(FILE_PATH + '.tmp')
-                            else:
+                            except:
                                 return [False, f'AES-GCM_ENCRYPTED_DATA_SIZE_DATA_CORRUPTED:\n{FILE_PATH}\nAdditionally, the temporary file: {FILE_PATH + ".tmp"},\nwas unable to be deleted.']
                         return [False, f'AES-GCM_ENCRYPTED_DATA_SIZE_DATA_CORRUPTED:\n{FILE_PATH}']
                     #READ THE AES-GCM ENCRYPTED CHUNK
@@ -334,9 +343,10 @@ def aes_gcm_decrypt_file(FILE_PATH, PASSWORD, BLOCK_SIZE=None):
                     #CHECK IF THE ENCRYPTED CHUNK, IS CORRUPTED
                     if len(ENCRYPTED_CHUNK) != CHUNK_SIZE:
                         if exists(FILE_PATH + '.tmp'):
-                            if all([access(FILE_PATH + '.tmp', W_OK), access(FILE_PATH + '.tmp', X_OK)]):
+                            try:
+                                chmod(FILE_PATH + '.tmp', S_IRWXU | S_IRWXG | S_IRWXO)
                                 remove(FILE_PATH + '.tmp')
-                            else:
+                            except:
                                 return [False, f'AES-GCM_ENCRYPTED_DATA_CORRUPTED:\n{FILE_PATH}\nAdditionally, the temporary file: {FILE_PATH + ".tmp"},\nwas unable to be deleted.']
                         return [False, f'AES-GCM_ENCRYPTED_DATA_CORRUPTED:\n{FILE_PATH}']
                     PLAINTEXT_CHUNK = DECRYPTOR.update(ENCRYPTED_CHUNK)
@@ -370,16 +380,18 @@ def aes_gcm_decrypt_file(FILE_PATH, PASSWORD, BLOCK_SIZE=None):
         return [True, f'AES-GCM_FILE_DECRYPTION_SUCCESSFULL:\n{FILE_PATH}']
     except InvalidTag:
         if exists(FILE_PATH + '.tmp'):
-            if all([access(FILE_PATH + '.tmp', W_OK), access(FILE_PATH + '.tmp', X_OK)]):
+            try:
+                chmod(FILE_PATH + '.tmp', S_IRWXU | S_IRWXG | S_IRWXO)
                 remove(FILE_PATH + '.tmp')
-            else:
+            except:
                 return [False, f'INCORRECT_PASSWORD:\n{FILE_PATH}\nAdditionally, the temporary file: {FILE_PATH + ".tmp"},\nwas unable to be deleted.']
         return [False, f'INCORRECT_PASSWORD:\n{FILE_PATH}']
     except Exception as ERROR:
         if exists(FILE_PATH + '.tmp'):
-            if all([access(FILE_PATH + '.tmp', W_OK), access(FILE_PATH + '.tmp', X_OK)]):
-                remove(FILE_PATH + '.tmp')
-            else:
+            try:
+               chmod(FILE_PATH + '.tmp', S_IRWXU | S_IRWXG | S_IRWXO)
+               remove(FILE_PATH + '.tmp')
+            except:
                 raise Exception(f'[Exception]\nFunction: "aes_gcm_decrypt_file()"\n{ERROR}\n{FILE_PATH}\nAdditionally, the temporary file: {FILE_PATH + ".tmp"},\nwas unable to be deleted.')
         raise Exception(f'[Exception]\nFunction: "aes_gcm_decrypt_file()"\n{ERROR}\n{FILE_PATH}')
 
@@ -426,7 +438,7 @@ def aes_gcm_decrypt_variable(ENCRYPTED_BYTES, KEY_SIZE, PASSWORD, SALT_BYTES, NO
     elif not ENCRYPTED_BYTES:
         raise ValueError('[ValueError]\nFunction: "aes_gcm_decrypt_variable()"\nThe encrypted bytes parameter, cannot be empty.')
     elif KEY_SIZE not in KEY_SIZE_LIST:
-        raise ValueError('[ValueError]\nFunction: "aes_gcm_encrypt_variable()"\nThe key size parameter, must be an integer type, of 128, 192, or 256.')
+        raise ValueError('[ValueError]\nFunction: "aes_gcm_decrypt_variable()"\nThe key size parameter, must be an integer type, of 128, 192, or 256.')
     elif not isinstance(SALT_BYTES, bytes):
         raise TypeError('[TypeError]\nFunction: "aes_gcm_decrypt_variable()"\nThe salt bytes parameter, must be a bytes type.')
     elif not SALT_BYTES:
