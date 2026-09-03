@@ -3,10 +3,10 @@
 
 # AES-GCM File-Crypter (Graphical User Interface)  
 
-### What Does This Application Do?
+## What Does This Application Do?
 This application, makes AES-GCM cryptography of files and/or entire folders, quick and easy for Windows and Linux.  
 
-### What Is AES-GCM?
+## What Is AES-GCM?
 AES-GCM, is the most secure and modern approach for encryption/decryption and has 3 options (128, 192, and 256 bit).  
 <br></br>
 
@@ -14,11 +14,11 @@ AES-GCM, is the most secure and modern approach for encryption/decryption and ha
 </br>
 
 ![Preview](assets/previews/preview_1.png)
-#### 1.) Pick encryption/decryption options
+### 1.) Pick encryption/decryption options
 ![Preview](assets/previews/preview_2.png)
-#### 2.) Enter the password
+### 2.) Enter the password
 ![Preview](assets/previews/preview_3.png)
-#### 3.) Encrypt/decrypt a file or an entire folder
+### 3.) Encrypt/decrypt a file or an entire folder
 ![Preview](assets/previews/preview_4.png)  
 <br></br>
 
