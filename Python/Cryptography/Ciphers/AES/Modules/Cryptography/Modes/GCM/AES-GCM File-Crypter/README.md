@@ -36,7 +36,7 @@ AES-GCM, is the most secure and modern approach for encryption/decryption and ha
 
 ## Compile, Yourself (Optional):  
 
-### Windows
+### Windows:
 1.) Make sure the latest python, PyInstaller, and any missing requirements are installed, \
 then open a terminal and change directory to this file's directory, before entering the following shellcode \
 2.) ```python -m PyInstaller --clean --noconfirm --onefile --windowed --icon=assets/icon/ico/icon.ico --add-data "assets;assets" "AES-GCM File-Crypter.pyw"```  
