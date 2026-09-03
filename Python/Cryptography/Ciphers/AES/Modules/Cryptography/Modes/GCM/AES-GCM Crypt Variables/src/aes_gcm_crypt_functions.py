@@ -1,7 +1,7 @@
 __name__ = 'aes_gcm_crypt_functions'
 __version__ = '1.0.0'
 __author__ = 'Joel Horensma'
-__email__ = ''
+__email__ = 'jdhorensma@gmail.com'
 __license__ = ''
 __description__ = 'An AES-GCM cryptography library, for cryptography of variables, files, and folders.'
 
