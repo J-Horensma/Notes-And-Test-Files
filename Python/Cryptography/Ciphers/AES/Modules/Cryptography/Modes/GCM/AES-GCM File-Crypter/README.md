@@ -10,7 +10,7 @@ This application, makes AES-GCM cryptography of files and/or entire folders, qui
 AES-GCM, is the most secure and modern approach for encryption/decryption and has 3 options (128, 192, and 256 bit).  
 <br></br>
 
-## Windows Version ("dist/windows" folder):  
+## Windows Version (In the "dist/windows" folder):  
 </br>
 
 ![Preview](assets/previews/windows_preview_1.png)
@@ -22,7 +22,7 @@ AES-GCM, is the most secure and modern approach for encryption/decryption and ha
 ![Preview](assets/previews/windows_preview_4.png)  
 <br></br>
 
-## Linux Version ("dist/linux" folder):  
+## Linux Version (In the "dist/linux" folder):  
 </br>
 
 ![Preview](assets/previews/linux_preview_1.png)
