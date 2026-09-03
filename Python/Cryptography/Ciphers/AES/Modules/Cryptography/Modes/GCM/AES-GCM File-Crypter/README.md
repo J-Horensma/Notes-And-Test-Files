@@ -12,44 +12,38 @@ This application, makes AES-GCM cryptography of files and/or entire folders, qui
 AES-GCM, is the most secure and modern approach for encryption/decryption and has 3 options (128, 192, and 256 bit).  
 <br></br><br></br>
 
-## Windows Version Previews:  
-<br>
+## Windows Version:  
+</br>
 
 ![Preview](assets/previews/preview_1.png)
+#### 1.) Pick encryption/decryption options
 ![Preview](assets/previews/preview_2.png)
+#### 2.) Enter the password
 ![Preview](assets/previews/preview_3.png)
+#### 3.) Encrypt/decrypt a file or an entire folder
 ![Preview](assets/previews/preview_4.png)  
 <br></br>
 
-## Linux Version Previews:  
+## Linux Version:  
 </br>
 
 ![Preview](assets/previews/linux_preview_1.png)
+#### 1.) Pick encryption/decryption options
 ![Preview](assets/previews/linux_preview_2.png)
+#### 2.) Enter the password
 ![Preview](assets/previews/linux_preview_3.png)
-![Preview](assets/previews/linux_preview_4.png)  
+#### 3.) Encrypt/decrypt a file or an entire folder
+![Preview](assets/previews/linux_preview_4.png)    
 <br></br>
 
-## Setup (Windows):
-#### No setup is required, the pre-compiled "AES-GCM File-Crypter.exe" file, has all of it's requirements bundled with it, just download and use.  
-</br>
+## Compile, Yourself (Optional):  
 
-## Setup (Linux):
-#### No setup is required, the pre-compiled "AES-GCM File-Crypter.bin" file, has all of it's requirements bundled with it, just download and use.  
-<br><br>
-
-## Usage:
-1.) Pick encryption/decryption options \
-2.) Enter the password \
-3.) Encrypt/decrypt a file or an entire folder  
-<br><br>
-
-## Compile, Yourself, On Windows (Optional):
+#### Windows
 1.) Make sure the latest python, PyInstaller, and any missing requirements are installed, \
 then open a terminal and change directory to this file's directory, before entering the following shellcode \
 2.) ```python -m PyInstaller --clean --noconfirm --onefile --windowed --icon=assets/icon/ico/icon.ico --add-data "assets;assets" "AES-GCM File-Crypter.pyw"```  
 
-## Compile, Yourself, On Linux (Optional):
+#### Linux:
 1.) Make sure the latest python, PyInstaller, and any missing requirements are installed, \
 then open a terminal and change directory to this file's directory, before entering the following shellcode \
 2.) ```python -m PyInstaller --clean --noconfirm --onefile --windowed --icon="assets/icon/ico/icon.ico" --add-data "assets:assets" --hidden-import=_cffi_backend --collect-binaries cffi --collect-data cffi "AES-GCM File-Crypter.pyw"```
