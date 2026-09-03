@@ -6,20 +6,24 @@
 </br>
 
 ## What Is AES-GCM?
-AES-GCM, is the most secure and modern approach for encryption/decryption and has 3 options (128, 192, and 256 bit).<br></br>
+AES-GCM, is the most secure and modern approach for encryption/decryption and has 3 options (128, 192, and 256 bit).  
+<br></br>
 
 ## Windows Version Previews:
 ![Preview](assets/previews/preview_1.png)
 ![Preview](assets/previews/preview_2.png)
 ![Preview](assets/previews/preview_3.png)
-![Preview](assets/previews/preview_4.png)<br></br>
+![Preview](assets/previews/preview_4.png)  
+<br></br>
 
 ## Setup (Windows):
 #### No setup is required, the pre-compiled "AES-GCM File-Crypter.exe" file, has all of it's requirements bundled with it, just download and use.  
 </br>
+
 ## Setup (Linux):
 #### No setup is required, the pre-compiled "AES-GCM File-Crypter.bin" file, has all of it's requirements bundled with it, just download and use.  
 <br><br>
+
 ## Usage:
 1.) Pick encryption/decryption options \
 2.) Enter the password \
