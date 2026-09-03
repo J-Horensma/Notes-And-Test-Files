@@ -8,7 +8,7 @@ This application, makes AES-GCM cryptography of files and/or entire folders, qui
 
 #### What Is AES-GCM?
 AES-GCM, is the most secure and modern approach for encryption/decryption and has 3 options (128, 192, and 256 bit).  
-<br></br><br></br>
+<br></br>
 
 ## Windows Version:  
 </br>
