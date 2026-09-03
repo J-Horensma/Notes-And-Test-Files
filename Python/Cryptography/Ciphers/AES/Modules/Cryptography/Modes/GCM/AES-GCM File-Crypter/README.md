@@ -26,22 +26,22 @@ AES-GCM, is the most secure and modern approach for encryption/decryption and ha
 </br>
 
 ![Preview](assets/previews/linux_preview_1.png)
-#### 1.) Pick encryption/decryption options
+### 1.) Pick encryption/decryption options
 ![Preview](assets/previews/linux_preview_2.png)
-#### 2.) Enter the password
+### 2.) Enter the password
 ![Preview](assets/previews/linux_preview_3.png)
-#### 3.) Encrypt/decrypt a file or an entire folder
+### 3.) Encrypt/decrypt a file or an entire folder
 ![Preview](assets/previews/linux_preview_4.png)    
 <br></br>
 
 ## Compile, Yourself (Optional):  
 
-#### Windows
+### Windows
 1.) Make sure the latest python, PyInstaller, and any missing requirements are installed, \
 then open a terminal and change directory to this file's directory, before entering the following shellcode \
 2.) ```python -m PyInstaller --clean --noconfirm --onefile --windowed --icon=assets/icon/ico/icon.ico --add-data "assets;assets" "AES-GCM File-Crypter.pyw"```  
 
-#### Linux:
+### Linux:
 1.) Make sure the latest python, PyInstaller, and any missing requirements are installed, \
 then open a terminal and change directory to this file's directory, before entering the following shellcode \
 2.) ```python -m PyInstaller --clean --noconfirm --onefile --windowed --icon="assets/icon/ico/icon.ico" --add-data "assets:assets" --hidden-import=_cffi_backend --collect-binaries cffi --collect-data cffi "AES-GCM File-Crypter.pyw"```
