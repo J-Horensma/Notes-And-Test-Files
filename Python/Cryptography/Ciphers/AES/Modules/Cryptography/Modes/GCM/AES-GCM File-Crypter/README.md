@@ -19,6 +19,13 @@ AES-GCM, is the most secure and modern approach for encryption/decryption and ha
 ![Preview](assets/previews/preview_4.png)  
 <br></br>
 
+## Linux Version Previews:
+![Preview](assets/previews/linux_preview_1.png)
+![Preview](assets/previews/linux_preview_2.png)
+![Preview](assets/previews/linux_preview_3.png)
+![Preview](assets/previews/linux_preview_4.png)  
+<br></br>
+
 ## Setup (Windows):
 #### No setup is required, the pre-compiled "AES-GCM File-Crypter.exe" file, has all of it's requirements bundled with it, just download and use.  
 </br>
