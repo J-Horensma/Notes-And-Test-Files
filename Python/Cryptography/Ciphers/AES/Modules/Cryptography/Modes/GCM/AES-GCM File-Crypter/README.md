@@ -22,12 +22,12 @@
 2.) Enter the password \
 3.) Encrypt/decrypt a file or an entire folder
 
-## Compile From Source, Yourself, On Windows:
+## Compile, Yourself, On Windows (Optional):
 1.) Make sure the latest python, PyInstaller, and requirements are installed, \
 then open a terminal and change directory to this file's directory, before entering the following shellcode \
 2.) ```python -m PyInstaller --clean --noconfirm --onefile --windowed --icon=assets/icon/ico/icon.ico --add-data "assets;assets" "AES-GCM File-Crypter.pyw"```
 
-## Compile From Source, Yourself, On Linux:
+## Compile, Yourself, On Linux (Optional):
 1.) Make sure the latest python, PyInstaller, and requirements are installed, \
 then open a terminal and change directory to this file's directory, before entering the following shellcode \
 2.) ```python -m PyInstaller --clean --noconfirm --onefile --windowed --icon="assets/icon/ico/icon.ico" --add-data "assets:assets" --hidden-import=_cffi_backend --collect-binaries cffi --collect-data cffi "AES-GCM File-Crypter.pyw"```
