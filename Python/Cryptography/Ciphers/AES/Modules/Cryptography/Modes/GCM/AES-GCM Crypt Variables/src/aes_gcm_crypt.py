@@ -1,28 +1,24 @@
 '''
-Commercial-Use License, With Redistribution Restrictions
---------------------------------------------------------
+Custom License, With Redistribution Limitations
+-----------------------------------------------
 
 "aes_gcm_crypt" Copyright © 2026 Joel Horensma
 
-For clarity, "software", means "aes_gcm_crypt.py", "personal", means not for profit, and "commercial", means for profit.
+For clarity:
+"software" means the source code of this file.
+"personal" means any use not intended for financial gain.
+"commercial" means use with product(s) and/or service(s) intended for financial gain.
 
-This software may be used, modified, and/or incorporated into personal and/or commercial products.
-Any modified version/s and/or products incorporating the software, may be distributed
-commercially (Without written notice), provided that it/they (The source code, being sold) contains substantial original additions or
-modifications.
+This software may be used, modified, and/or incorporated into projects for personal use.
 
-Sale of the unmodified software, or a substantially
-unchanged copy of it, is prohibited, without prior written permission.
+Commercial use of this software is allowed when:
+1.) Substantial modifications and/or additions have first been incorporated into the software (More than minor cosmetic and/or structural changes).
+2.) The software changes must be reasonably demonstrable in the behavior, functionality, and/or structure of the running software(s) and/or service(s).
 
-The copyright notice and this license must be retained, in all copies, of the software.
+Redistribution, with commercial intent, of the unmodified software, or a substantially unchanged copy of it, is prohibited without prior written permission.
+
+This copyright notice and license must be retained, precisely as-is, in all copies of the software.
 '''
-
-__name__ = 'aes_gcm_crypt'
-__version__ = '1.0.0.0'
-__author__ = 'Joel Horensma'
-__email__ = 'N/A'
-__license__ = 'Commercial-Use License, With Redistribution Restrictions'
-__description__ = 'An AES-GCM cryptography library, for cryptography of variables, files, and/or folders.'
 
 from io import IOBase
 from os import walk, access, R_OK, W_OK, X_OK, replace, remove, fsync
@@ -230,6 +226,7 @@ def check_aes_gcm_headers(FILE):
 #THIS FUNCTION:
 #1.) REQUIRES A FOLDER PATH STRING, KEY SIZE INTEGER, AND PASSWORD STRING
 #2.) RECURSIVELY AES-GCM ENCRYPTS ALL FILES, WITHIN THE SUPPLIED FOLDER PATH (SECURELY, FOR ANY FILE TYPE)
+#3.) RETURNS A LIST WITH "True" (SUCCESS) or "False" (ERROR), AS THE FIRST ITEM
 def aes_gcm_encrypt_folder(FOLDER_PATH, KEY_SIZE, PASSWORD):
     KEY_SIZE_LIST = [128, 192, 256]
     if not isinstance(FOLDER_PATH, str):
@@ -262,6 +259,7 @@ def aes_gcm_encrypt_folder(FOLDER_PATH, KEY_SIZE, PASSWORD):
 #THIS FUNCTION:
 #1.) REQUIRES A FOLDER PATH STRING, KEY SIZE INTEGER, AND PASSWORD STRING
 #2.) RECURSIVELY AES-GCM DECRYPTS ALL FILES, WITHIN THE SUPPLIED FOLDER PATH (IF THE SUPPLIED PASSWORD, IS CORRECT)
+#3.) RETURNS A LIST WITH "True" (SUCCESS) or "False" (ERROR), AS THE FIRST ITEM
 def aes_gcm_decrypt_folder(FOLDER_PATH, PASSWORD):
     if not isinstance(FOLDER_PATH, str):
         raise TypeError('[TypeError]\nFunction: "aes_gcm_decrypt_folder()"\nThe folder path parameter, must be a string type.')
@@ -291,6 +289,7 @@ def aes_gcm_decrypt_folder(FOLDER_PATH, PASSWORD):
 #1.) REQUIRES A FILE PATH STRING, KEY SIZE INTEGER, AND PASSWORD STRING
 #2.) ACCEPTS AN OPTIONAL BLOCK SIZE INTEGER
 #3.) AES-GCM ENCRYPTS THE SUPPLIED FILE PATH, WITH THE SUPPLIED KEY SIZE (SECURELY, FOR ANY FILE TYPE)
+#4.) RETURNS A LIST WITH "True" (SUCCESS) or "False" (ERROR), AS THE FIRST ITEM
 def aes_gcm_encrypt_file(FILE_PATH, KEY_SIZE, PASSWORD, BLOCK_SIZE=None):
     KEY_SIZE_LIST = [128, 192, 256]
     if not isinstance(FILE_PATH, str):
@@ -391,6 +390,7 @@ def aes_gcm_encrypt_file(FILE_PATH, KEY_SIZE, PASSWORD, BLOCK_SIZE=None):
 #1.) REQUIRES FILE PATH AND PASSWORD STRINGS
 #2.) ACCEPTS AN OPTIONAL BLOCK SIZE INTEGER
 #3.) AES-GCM DECRYPTS THE SUPPLIED FILE PATH (IF THE SUPPLIED PASSWORD, IS CORRECT)
+#4.) RETURNS A LIST WITH "True" (SUCCESS) or "False" (ERROR), AS THE FIRST ITEM
 def aes_gcm_decrypt_file(FILE_PATH, PASSWORD, BLOCK_SIZE=None):
     if not isinstance(FILE_PATH, str):
         raise TypeError('[TypeError]\nFunction: "aes_gcm_decrypt_file()"\nThe file path parameter, must be a string type.')
@@ -487,7 +487,7 @@ def aes_gcm_decrypt_file(FILE_PATH, PASSWORD, BLOCK_SIZE=None):
 #1.) REQUIRES A PLAINTEXT STRING OR BYTES TYPE VARIABLE, KEY SIZE INTEGER, AND A PASSWORD STRING
 #2.) CREATES A 16 BYTE SALT AND 12 BYTE NONCE
 #3.) AES-GCM ENCRYPTS THE VARIABLE
-#4.) RETURNS THE ENCRYPTED VARIABLE, SALT, NONCE, AND TAG BYTES, AS A LIST 
+#4.) RETURNS A LIST WITH "True" (SUCCESS) or "False" (ERROR), AS THE FIRST ITEM, THEN SALT, NONCE, AND TAG BYTES (IF SUCCESS)
 def aes_gcm_encrypt_variable(PLAINTEXT_VARIABLE, KEY_SIZE, PASSWORD):
     KEY_SIZE_LIST = [128, 192, 256]
     if not isinstance(PLAINTEXT_VARIABLE, (str, bytes)):
@@ -509,16 +509,15 @@ def aes_gcm_encrypt_variable(PLAINTEXT_VARIABLE, KEY_SIZE, PASSWORD):
             ENCRYPTOR = CIPHER.encryptor()
             ENCRYPTED_VARIABLE_BYTES = ENCRYPTOR.update(PLAINTEXT) + ENCRYPTOR.finalize()
             TAG_BYTES = ENCRYPTOR.tag
-            return [ENCRYPTED_VARIABLE_BYTES, SALT_BYTES, NONCE_BYTES, TAG_BYTES]
+            return [True, ENCRYPTED_VARIABLE_BYTES, SALT_BYTES, NONCE_BYTES, TAG_BYTES]
         except BaseException as ERROR:
-            raise Exception(f'[Exception]\nFunction: "aes_gcm_encrypt_variable()"\n{ERROR}')
+            return [False, f'ERROR!\n{ERROR}']
 
 #THIS FUNCTION:
 #1.) REQUIRES AN ENCRYPTED VARIABLE BYTES, KEY SIZE INTEGER, PASSWORD STRING, SALT, NONCE, AND TAG BYTES
 #2.) VALIDATES THE PASSWORD, USING THE SALT BYTES, TO CREATE A MATCHING KEY TO THE ORIGINAL ENCRYPTION KEY, 
 #IN COMBINATION WITH THE PASSWORD, USING THE "get_aes_key_and_salt()" FUNCTION
-#3.) DECRYPTS AND RETURNS THE VARIABLE, AS A BYTES TYPE, 
-#IF THE PASSWORD IS CORRECT, RETURNS "None", IF THE PASSWORD IS INCORRECT
+#3.) DECRYPTS AND RETURNS A LIST WITH "True" (SUCCESS) or "False" (ERROR), AS THE FIRST ITEM, THEN DECRYPTED PLAINTEXT (IF SUCCESS)
 def aes_gcm_decrypt_variable(ENCRYPTED_BYTES, KEY_SIZE, PASSWORD, SALT_BYTES, NONCE_BYTES, TAG_BYTES):
     KEY_SIZE_LIST = [128, 192, 256]
     if not isinstance(ENCRYPTED_BYTES, bytes):
@@ -551,8 +550,8 @@ def aes_gcm_decrypt_variable(ENCRYPTED_BYTES, KEY_SIZE, PASSWORD, SALT_BYTES, NO
             CIPHER = Cipher(algorithms.AES(KEY_BYTES), modes.GCM(NONCE_BYTES, TAG_BYTES))
             DECRYPTOR = CIPHER.decryptor()
             PLAINTEXT = DECRYPTOR.update(ENCRYPTED_BYTES) + DECRYPTOR.finalize()
-            return PLAINTEXT
+            return [True, PLAINTEXT]
         except InvalidTag:
-            return None
+            return [False, f'INCORRECT_PASSWORD!']
         except BaseException as ERROR:
-            raise Exception(f'[Exception]\nFunction: "aes_gcm_decrypt_variable()"\n{ERROR}')
+            return [False, f'ERROR!\n{ERROR}']
